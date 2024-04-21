@@ -14,3 +14,5 @@ Usage:
   -t string
         operating mode [ wireguard | clash ] (default "wireguard")
 ```
+
+> `clash subscribe url` http://ip:8888
