@@ -32,7 +32,7 @@ func init() {
 		flag.PrintDefaults()
 	}
 	if _, err := os.Stat(util.ConfigPath); os.IsNotExist(err) {
-		// 如果文件夹不存在，创建文件夹
+		// If the folder does not exist, create the folder
 		err := os.MkdirAll(util.ConfigPath, 0755)
 		if err != nil {
 			return
@@ -167,6 +167,13 @@ func main() {
 		services.Subscribe(clash, clashTemplate)
 	}
 	if serverType == "wireguard" {
+		if _, err := os.Stat(util.OutPath); os.IsNotExist(err) {
+			// If the folder does not exist, create the folder
+			err := os.MkdirAll(util.OutPath, 0755)
+			if err != nil {
+				return
+			}
+		}
 		speedResultFile, err := os.Create(util.OutFilePath)
 		if err != nil {
 			log.Error(err)

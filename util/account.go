@@ -79,12 +79,13 @@ type Key struct {
 
 var (
 	ConfigPath        = "config"
+	OutPath           = "out"
 	KeyFilePath       = fmt.Sprintf("%s/key.yml", ConfigPath)
 	AccountFilePath   = fmt.Sprintf("%s/account.yml", ConfigPath)
 	CookieFilePath    = fmt.Sprintf("%s/cookie", ConfigPath)
 	GeoLite2CityPath  = fmt.Sprintf("%s/GeoLite2-City.mmdb", ConfigPath)
 	WireGuardConfPath = fmt.Sprintf("%s/wireguard.conf", ConfigPath)
-	OutFilePath       = "out/data.csv"
+	OutFilePath       = fmt.Sprintf("%s/data.csv", OutPath)
 )
 
 func GetTimestamp() string {
