@@ -1,7 +1,4 @@
 .idea
-config/*.yml
-config/*.bak
-config/cookie
+config/*
 go-warp2wireguard*
-config/*.conf
 out
