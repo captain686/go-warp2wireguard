@@ -2,4 +2,6 @@
 config/*.yml
 config/*.bak
 config/cookie
-go-warp+2wireguard
+go-warp2wireguard*
+config/*.conf
+out

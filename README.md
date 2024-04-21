@@ -9,10 +9,12 @@
 ## 💿使用
 
 ```
-./go-warp+2wireguard -h
+./go-warp2wireguard -h
 Usage:
   -t string
         operating mode [ wireguard | clash ] (default "wireguard")
 ```
 
 > `clash subscribe url` http://ip:8888
+
+### [`warp 代理类型查看`](https://www.cloudflare.com/cdn-cgi/trace)

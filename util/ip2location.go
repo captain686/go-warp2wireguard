@@ -17,8 +17,8 @@ type Release struct {
 }
 
 func checkLastReleases() (*string, error) {
-	owner := "P3TERX"      // 替换为仓库所有者的用户名或组织名
-	repo := "GeoLite.mmdb" // 替换为仓库名称
+	owner := "P3TERX"      // Replace with the username or organization name of the repository owner
+	repo := "GeoLite.mmdb" // Replace with warehouse name
 
 	url := fmt.Sprintf("https://api.github.com/repos/%s/%s/releases/latest", owner, repo)
 

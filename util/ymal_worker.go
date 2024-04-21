@@ -13,7 +13,7 @@ func Save2Yaml(keyData interface{}, filePath string) error {
 		log.Error("YAML marshal error:", err)
 		return err
 	}
-	// 将YAML写入文件
+	// Write YAML to file
 	err = os.WriteFile(filePath, yamlBytes, 0644)
 	if err != nil {
 		log.Error("Write file error:", err)

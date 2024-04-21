@@ -45,7 +45,7 @@ func generateRandomString(length int) string {
 }
 
 func Query(id, token, accountFilePath string) error {
-	if !util.ConfigFileCheck(util.CookieFilePath) {
+	if !util.FileCheck(util.CookieFilePath) {
 		err := fmt.Errorf("cookie is empty")
 		log.Error(err)
 		return err
@@ -254,7 +254,7 @@ func AccountReg() error {
 	fmt.Println("--------------------------------warning--------------------------------")
 	fmt.Println("|                    Account registration successful                  |")
 	fmt.Println("|            The account information is in the config directory       |")
-	fmt.Println(fmt.Sprintf("|            account license %s               |", accountData.Account.License))
+	fmt.Println(fmt.Sprintf("|            account license :  %s            |", accountData.Account.License))
 	fmt.Println("-----------------------------------------------------------------------")
 	return nil
 }
