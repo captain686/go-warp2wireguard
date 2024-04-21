@@ -36,6 +36,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: v1.0.0
         files: |
           go-warp2wireguard_Windows_amd64.exe
           go-warp2wireguard_darwin_amd64
