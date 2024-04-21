@@ -1,0 +1,42 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.22
+        
+    - name: Golang info
+      run: go env -w GO111MODULE=auto && go env
+      
+    - name: download
+      run: |
+        go clean -cache
+        go mod download
+        go install mvdan.cc/garble@master
+      
+    - name: build
+      run: |
+       garble -seed=random -tiny -literals build -o go-warp2wireguard_linux_amd64 -ldflags="-s -w" -trimpath
+       CGO_ENABLED=0 GOOS=windows GOARCH=amd64 garble -seed=random -tiny -literals build -o go-warp2wireguard_Windows_amd64.exe -ldflags="-s -w" -trimpath
+       CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 garble -seed=random -tiny -literals build -o go-warp2wireguard_darwin_amd64 -ldflags="-s -w" -trimpath
+       
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          go-warp2wireguard_Windows_amd64.exe
+          go-warp2wireguard_darwin_amd64
+          go-warp2wireguard_linux_amd64
