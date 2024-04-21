@@ -50,7 +50,7 @@ func checkLastReleases() (*string, error) {
 
 	releaseVersion := strings.Split(release.HTMLURL, "/")
 
-	downloadUrl := fmt.Sprintf("https://ghproxy.com/https://github.com/P3TERX/GeoLite.mmdb/releases/download/%s/GeoLite2-City.mmdb", releaseVersion[len(releaseVersion)-1])
+	downloadUrl := fmt.Sprintf("https://github.com/P3TERX/GeoLite.mmdb/releases/download/%s/GeoLite2-City.mmdb", releaseVersion[len(releaseVersion)-1])
 	return &downloadUrl, nil
 }
 
