@@ -1,0 +1,5 @@
+.idea
+config/*.yml
+config/*.bak
+config/cookie
+go-warp+2wireguard
