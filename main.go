@@ -9,6 +9,7 @@ import (
 	"github.com/charmbracelet/log"
 	"os"
 	"sync"
+	"time"
 )
 
 //go:embed template/clash_template
@@ -88,20 +89,16 @@ func regAndFlow(serviceType string) error {
 	id := account.ID
 	accountToken := account.Token
 
-	//if serviceType == "wireguard" {
 	task(id, accountToken)
-	//}
 
-	if serviceType == "clash" {
-		go func() {
-			cronFunc := services.CronFunction{
-				Function:     task,
-				Id:           id,
-				AccountToken: accountToken,
-			}
-			cronFunc.CronServe()
-		}()
+	//go func() {
+	cronFunc := services.CronFunction{
+		Function:     task,
+		Id:           id,
+		AccountToken: accountToken,
 	}
+	cronFunc.CronServe()
+	//}()
 	return nil
 }
 
@@ -121,6 +118,7 @@ func speedTest(speedSort []util.Speed) []util.Speed {
 }
 
 func main() {
+
 	flag.Parse()
 	if serviceType != "wireguard" && serviceType != "clash" {
 		flag.Usage()
@@ -159,12 +157,15 @@ func main() {
 			log.Error(err)
 			return
 		}
-
+		log.Info(fmt.Sprintf("[+] Speed test results are saved in %s", util.OutFilePath))
 		err = services.GenerateConf(speedSort[0].Server, publicKey)
 		if err != nil {
 			log.Error(err)
 			return
 		}
-
+		
+		for {
+			time.Sleep(10 * time.Minute)
+		}
 	}
 }
