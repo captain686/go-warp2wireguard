@@ -9,7 +9,7 @@ require (
 	github.com/oschwald/geoip2-golang v1.9.0
 	github.com/pic4xiu/iprange v0.0.0-20230614100120-c32059bb4edd
 	github.com/robfig/cron/v3 v3.0.1
-	golang.org/x/crypto v0.51.0
+	golang.org/x/crypto v0.52.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
