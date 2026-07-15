@@ -1,8 +1,6 @@
 module github.com/captain686/go-warp2wireguard
 
-go 1.24.0
-
-toolchain go1.24.1
+go 1.25.0
 
 require (
 	github.com/EDDYCJY/fake-useragent v0.2.0
@@ -11,7 +9,7 @@ require (
 	github.com/oschwald/geoip2-golang v1.9.0
 	github.com/pic4xiu/iprange v0.0.0-20230614100120-c32059bb4edd
 	github.com/robfig/cron/v3 v3.0.1
-	golang.org/x/crypto v0.45.0
+	golang.org/x/crypto v0.51.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -33,6 +31,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
-	golang.org/x/net v0.47.0 // indirect
-	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/net v0.55.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
 )
